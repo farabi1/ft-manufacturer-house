@@ -18,7 +18,7 @@ const Footer = () => {
                     <a className="link link-hover">Contact us</a>
                 </div>
                 <div>
-                    <p>Copyright © 2022 - All right reserved by MzBnB</p>
+                    <p>Copyright © 2022 - All right reserved by FT MH</p>
                 </div>
             </footer>
         </div>
