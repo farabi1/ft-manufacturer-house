@@ -53,7 +53,7 @@ const PurchaseModal = ({ purchase }) => {
             <div className="modal modal-bottom sm:modal-middle">
                 <div className="modal-box">
                     <label htmlFor="purchase-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                    <h3 className="font-bold text-lg text-primary">Customer Name : {name}</h3>
+                    <h3 className="font-bold text-lg text-primary">Product Name : {name}</h3>
                     <form onSubmit={handlePurchase} className='grid grid-cols-1 gap-4 mt-3'>
                         <input type="text" readOnly value={price} className="input input-bordered input-success w-full max-w-xs" />
 
