@@ -1,10 +1,17 @@
 import Basecamp from "./Basecamp/Basecamp";
+import { QueryClient, QueryClientProvider } from 'react-query'
+
+
+const queryClient = new QueryClient()
 
 
 function App() {
   return (
     <div>
-      <Basecamp></Basecamp>
+      <QueryClientProvider client={queryClient}>
+        <Basecamp></Basecamp>
+      </QueryClientProvider>
+
     </div>
   );
 }
