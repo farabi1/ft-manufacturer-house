@@ -18,7 +18,7 @@ const Purchase = () => {
         fetch(url)
             .then(res => res.json())
             .then(data => setParts(data));
-    }, [])
+    }, [purchaseId])
 
 
     return (
