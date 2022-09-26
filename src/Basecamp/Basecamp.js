@@ -29,7 +29,7 @@ const Basecamp = () => {
         <div>
             <Routes>
                 <Route path="/" element={<Home />} />
-                {/* <Route path="blogs" element={<Blogs />} /> */}
+                <Route path="portfolio" element={<Portfolio />} />
                 <Route path="dashboard" element={
                     <RequireAuth>
                         <Dashboard />
