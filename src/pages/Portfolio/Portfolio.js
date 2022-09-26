@@ -16,7 +16,7 @@ const Portfolio = () => {
                             FT Manufacturer House
                             <div class="badge badge-secondary">Project</div>
                         </h2>
-                        <p className=' my-5'>As i introduce myself Always a learner, is very keen  to add value at any project i work on whether commercial or private. Pro-active researcher for developing a web application.</p>
+                        <p className=' my-5'>As we introduce ourself Always a learner, is very keen  to add value at any project i work on whether commercial or private. Pro-active researcher for developing a web application.</p>
                         <div class="card-actions justify-start">
                             <div class="badge badge-outline py-3">HTML</div>
                             <div class="badge badge-outline py-3">CSS</div>

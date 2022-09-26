@@ -21,6 +21,7 @@ import ManageProducts from '../components/Auth Nested Route/Admin/Manage Product
 import MakeAdmin from '../components/Auth Nested Route/Admin/Make Admin/MakeAdmin';
 import AddProducts from '../components/Auth Nested Route/Admin/Add A Product/AddProducts';
 import NotFound from '../pages/Not Found/NotFound';
+import Portfolio from '../pages/Portfolio/Portfolio';
 
 
 
