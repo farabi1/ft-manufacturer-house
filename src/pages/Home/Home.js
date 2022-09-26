@@ -13,7 +13,7 @@ const Home = () => {
             <Parts></Parts>
             <Reviews></Reviews>
             <Footer></Footer>
-            {/* <h1 className=' text-center p-12 m-12'>Home</h1> */}
+
         </div>
     );
 };

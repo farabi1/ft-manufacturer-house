@@ -11,7 +11,7 @@ import RequireAuth from '../pages/Auth/RequireAuth/RequireAuth';
 import Signup from '../pages/Auth/Signup/Signup';
 import Dashboard from '../pages/Dashboard/Dashboard';
 import Home from '../pages/Home/Home';
-// import MyPortfolio from './Pages/My Portfolio/MyPortfolio';
+
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -43,7 +43,6 @@ const Basecamp = () => {
                     <Route path="users" element={<MakeAdmin />}></Route>
                     <Route path="addproducts" element={<AddProducts></AddProducts>}></Route>
                 </Route>
-                {/* <Route path="myportfolio" element={<MyPortfolio />} /> */}
                 <Route path="purchase/:purchaseId" element={
                     <RequireAuth>
                         <Purchase />
