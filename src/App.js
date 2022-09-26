@@ -11,7 +11,6 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <Basecamp></Basecamp>
       </QueryClientProvider>
-
     </div>
   );
 }
