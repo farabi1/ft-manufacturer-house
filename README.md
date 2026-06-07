@@ -10,8 +10,8 @@ Welcome to the client-side repository for **FT Manufacturer House**, a modern, r
 ## 🎓 Academic Proof & Demonstrated Skills
 Beyond academic courses, this project demonstrates practical web engineering skills through the development of a complete full-stack web project with a separate client-server architecture, REST API communication, database integration, and dynamic web application development.
 
-* **Client-side Repository:** [https://github.com/farabi1/manufacturer-website-client-side](https://github.com/farabi1/manufacturer-website-client-side)
-* **Server-side Repository:** [https://github.com/farabi1/manufacturer-website-server-side](https://github.com/farabi1/manufacturer-website-server-side)
+* **Client-side Repository:** [https://github.com/farabi1/ft-manufacturer-house](https://github.com/farabi1/ft-manufacturer-house)
+* **Server-side Repository:** [https://github.com/farabi1/ft-manufacturer-house-server](https://github.com/farabi1/ft-manufacturer-house-server)
 
 **Demonstrated Skills:**
 * Client-server architecture & RESTful API design
@@ -69,8 +69,8 @@ ft-manufacturer-house/
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/farabi1/manufacturer-website-client-side.git
-cd manufacturer-website-client-side
+git clone https://github.com/farabi1/ft-manufacturer-house.git
+cd ft-manufacturer-house
 ```
 
 ### 2. Configure Environment Variables
