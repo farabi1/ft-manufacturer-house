@@ -9,7 +9,10 @@ const Banner = () => {
                     <div className="max-w-md">
                         <h1 className="mb-5 text-5xl font-bold text-white">FT Manufacturer House</h1>
                         <p className="mb-5 text-xl font-semibold text-white">Get best Product in your city</p>
-                        <a href="#parts-section" className="btn btn-primary text-white">Explore</a>
+                        <button 
+                            onClick={() => document.getElementById('parts-section')?.scrollIntoView({ behavior: 'smooth' })} 
+                            className="btn btn-primary text-white"
+                        >Explore</button>
                     </div>
                 </div>
             </div>

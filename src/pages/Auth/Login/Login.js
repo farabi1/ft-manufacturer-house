@@ -125,8 +125,31 @@ const Login = () => {
 
                         <button
                             onClick={() => signInWithGoogle()}
-                            className="btn btn-outline btn-success text-lg"
+                            className="btn btn-outline btn-success text-lg w-full"
                         >Continue With Google</button>
+
+                        {/* Demo/Examiner Credentials Box */}
+                        <div className="mt-6 p-4 bg-blue-50/60 border border-blue-100 rounded-2xl text-slate-700 text-xs">
+                            <p className="font-bold text-blue-900 mb-2 flex items-center gap-1.5">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                Examiner Demo Credentials:
+                            </p>
+                            <div className="space-y-2">
+                                <div className="flex justify-between items-center bg-white/90 p-2 rounded-lg border border-blue-50/80 shadow-xs">
+                                    <span><strong>Buyer Role:</strong> buyer@industrial.com</span>
+                                    <span className="font-mono bg-slate-100 px-1.5 py-0.5 rounded text-[10px] text-slate-600 font-bold select-all">password123</span>
+                                </div>
+                                <div className="flex justify-between items-center bg-white/90 p-2 rounded-lg border border-blue-50/80 shadow-xs">
+                                    <span><strong>Admin Role:</strong> rashidfarabi@gmail.com</span>
+                                    <span className="font-mono bg-slate-100 px-1.5 py-0.5 rounded text-[10px] text-slate-600 font-bold select-all">password123</span>
+                                </div>
+                            </div>
+                            <p className="text-[10.5px] text-slate-500 mt-2.5 leading-relaxed">
+                                <strong>Tip:</strong> If these accounts are not yet registered in your Firebase Auth environment, simply click <Link className="text-blue-600 font-bold hover:underline" to="/signup">Register Now</Link> and sign up using these exact emails. The database will automatically recognize and grant them their respective Buyer/Admin dashboard panels!
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>

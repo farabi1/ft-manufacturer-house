@@ -56,11 +56,7 @@ const Basecamp = () => {
                         </RequireAdmin>
                     }></Route>
                 </Route>
-                <Route path="purchase/:purchaseId" element={
-                    <RequireAuth>
-                        <Purchase />
-                    </RequireAuth>
-                } />
+                <Route path="purchase/:purchaseId" element={<Purchase />} />
                 <Route path="login" element={<Login />} />
                 <Route path="signup" element={<Signup />} />
                 <Route path='*' element={<NotFound></NotFound>}></Route>

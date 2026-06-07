@@ -26,6 +26,22 @@ Beyond academic courses, this project demonstrates practical web engineering ski
 
 ---
 
+## 🔑 Examiner & Demo Credentials
+
+To check role-based authentication, protected paths, and dashboard panels, you can use these test accounts:
+
+* **Buyer Role Account:**
+  * **Email:** `buyer@industrial.com`
+  * **Password:** `password123`
+* **Administrator Role Account:**
+  * **Email:** `rashidfarabi@gmail.com`
+  * **Password:** `password123`
+
+> [!TIP]
+> If these accounts do not exist in your Firebase Authentication database yet, simply go to the **Register** view in the application and sign up using these exact emails. The pre-seeded MongoDB backend will automatically recognize them and grant the appropriate dashboard privileges (Buyer or Admin).
+
+---
+
 ## 🛠️ Technology Stack
 * **Framework:** React.js (Single Page Application)
 * **Styling & UI:** Tailwind CSS, daisyUI component library
