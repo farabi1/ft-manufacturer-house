@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
 import auth from '../../../../firebase.init';
+import API_BASE from '../../../../api';
 
 const MyOrders = () => {
 
@@ -11,7 +12,11 @@ const MyOrders = () => {
 
     useEffect(() => {
         if (user) {
-            fetch(`https://immense-shore-60421.herokuapp.com/orders?customer=${user.email}`)
+            fetch(`${API_BASE}/orders?customer=${user.email}`, {
+                headers: {
+                    'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                }
+            })
                 .then(res => res.json())
                 .then(data => { setOrders(data) })
 
@@ -41,13 +46,19 @@ const MyOrders = () => {
                     <tbody>
                         {
                             orders.map((order, index) =>
-                                <tr key={index} >
+                                <tr key={order._id || index} >
                                     <th>{index + 1}</th>
                                     <td>{order.customerName}</td>
                                     <td>{order.customerMail}</td>
                                     <td>{order.purchase}</td>
                                     <td>{order.address}</td>
-                                    <td><button onClick={handlePending} className="btn btn-outline btn-warning btn-sm cursor-not-allowed" >Pending</button></td>
+                                    <td>
+                                        {order.status === 'approved' ? (
+                                            <span className="text-success font-semibold">Approved</span>
+                                        ) : (
+                                            <button onClick={handlePending} className="btn btn-outline btn-warning btn-sm cursor-not-allowed" >Pending</button>
+                                        )}
+                                    </td>
                                 </tr>)
                         }
 

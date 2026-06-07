@@ -1,34 +1,36 @@
 import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
-
+import API_BASE from '../../../../api';
 
 const ManageProducts = () => {
     const [parts, setParts] = useState([]);
 
-
     useEffect(() => {
-        fetch('https://immense-shore-60421.herokuapp.com/purchase')
+        fetch(`${API_BASE}/purchase`, {
+            headers: {
+                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
             .then(res => res.json())
             .then(data => setParts(data));
     }, [])
 
-
-
     const handleDelete = id => {
-        const url = `https://immense-shore-60421.herokuapp.com/purchase/${id}`;
+        const url = `${API_BASE}/purchase/${id}`;
         fetch(url, {
-            method: 'DELETE'
+            method: 'DELETE',
+            headers: {
+                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+            }
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 const remained = parts.filter(part => part._id !== id);
                 setParts(remained);
                 toast.success(`Product Deleted`)
             })
 
     }
-
 
     return (
         <div className='ml-5'>
@@ -48,7 +50,7 @@ const ManageProducts = () => {
 
                         {
                             parts.map(part =>
-                                <tr>
+                                <tr key={part._id}>
                                     <td>{part.name}</td>
                                     <td><button onClick={() => handleDelete(part._id)} className="btn btn-outline btn-error btn-sm">Remove Product</button></td>
                                 </tr>)

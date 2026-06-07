@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react"
+import API_BASE from '../../api'
 
 const useToken = user => {
     const [token, setToken] = useState('');
     useEffect(() => {
-        console.log('user inside', user);
         const email = user?.user?.email;
         const currentUser = { email: email };
 
         if (email) {
-            fetch(`https://immense-shore-60421.herokuapp.com/users/${email}`, {
+            fetch(`${API_BASE}/users/${email}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json'
@@ -17,7 +17,6 @@ const useToken = user => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log('data in use token ', data);
                     const accessToken = data.token;
                     localStorage.setItem('accessToken', accessToken);
                     setToken(accessToken);

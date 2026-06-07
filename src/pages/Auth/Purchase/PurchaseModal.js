@@ -1,8 +1,8 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
-import auth from '../../../firebase.init'
-
+import auth from '../../../firebase.init';
+import API_BASE from '../../../api';
 
 const PurchaseModal = ({ purchase }) => {
 
@@ -13,7 +13,6 @@ const PurchaseModal = ({ purchase }) => {
     const handlePurchase = event => {
         event.preventDefault();
         const quantity = event.target.quantity.value;
-        console.log(quantity);
         const order = {
             purchaseId: _id,
             purchase: name,
@@ -23,16 +22,16 @@ const PurchaseModal = ({ purchase }) => {
             address: event.target.address.value
 
         }
-        fetch('https://immense-shore-60421.herokuapp.com/orders', {
+        fetch(`${API_BASE}/orders`, {
             method: 'POST',
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
             },
             body: JSON.stringify(order)
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 if (data) {
                     toast.success(`Order is set`)
                 }
@@ -43,9 +42,6 @@ const PurchaseModal = ({ purchase }) => {
             });
 
     }
-
-
-
 
     return (
         <div>
@@ -63,7 +59,7 @@ const PurchaseModal = ({ purchase }) => {
 
                         <input type="text" name="address" placeholder="Home Address" className="input input-bordered input-success w-full max-w-xs" />
 
-                        <input type="number" name="quantity" min={40} max={100} placeholder="Enter No of Products" className="input input-bordered input-success w-full max-w-xs" />
+                        <input type="number" name="quantity" min={purchase?.minorder || 1} max={purchase?.availquantity || 100} placeholder="Enter No of Products" className="input input-bordered input-success w-full max-w-xs" />
 
                         <input type="submit" value="submit" placeholder="Type here" className="btn btn-secondary input-success w-full max-w-xs" />
                     </form>

@@ -3,15 +3,13 @@ import MyOrders from '../components/Auth Nested Route/User/MyOrders/MyOrders';
 import MyProfile from '../components/Auth Nested Route/User/MyProfile/MyProfile';
 import AddReviews from '../components/Auth Nested Route/User/MyReviews/AddReviews';
 
-
-
 import Login from '../pages/Auth/Login/Login';
 import Purchase from '../pages/Auth/Purchase/Purchase';
 import RequireAuth from '../pages/Auth/RequireAuth/RequireAuth';
+import RequireAdmin from '../pages/Auth/RequireAuth/RequireAdmin';
 import Signup from '../pages/Auth/Signup/Signup';
 import Dashboard from '../pages/Dashboard/Dashboard';
 import Home from '../pages/Home/Home';
-
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -22,8 +20,6 @@ import MakeAdmin from '../components/Auth Nested Route/Admin/Make Admin/MakeAdmi
 import AddProducts from '../components/Auth Nested Route/Admin/Add A Product/AddProducts';
 import NotFound from '../pages/Not Found/NotFound';
 import Portfolio from '../pages/Portfolio/Portfolio';
-
-
 
 const Basecamp = () => {
     return (
@@ -39,10 +35,26 @@ const Basecamp = () => {
                     <Route index element={<MyOrders></MyOrders>}></Route>
                     <Route path="myprofile" element={<MyProfile></MyProfile>}></Route>
                     <Route path="addreviews" element={<AddReviews></AddReviews>}></Route>
-                    <Route path="manageallorder" element={<ManageAllOrders></ManageAllOrders>}></Route>
-                    <Route path="manageproduct" element={<ManageProducts></ManageProducts>}></Route>
-                    <Route path="users" element={<MakeAdmin />}></Route>
-                    <Route path="addproducts" element={<AddProducts></AddProducts>}></Route>
+                    <Route path="manageallorder" element={
+                        <RequireAdmin>
+                            <ManageAllOrders></ManageAllOrders>
+                        </RequireAdmin>
+                    }></Route>
+                    <Route path="manageproduct" element={
+                        <RequireAdmin>
+                            <ManageProducts></ManageProducts>
+                        </RequireAdmin>
+                    }></Route>
+                    <Route path="users" element={
+                        <RequireAdmin>
+                            <MakeAdmin />
+                        </RequireAdmin>
+                    }></Route>
+                    <Route path="addproducts" element={
+                        <RequireAdmin>
+                            <AddProducts></AddProducts>
+                        </RequireAdmin>
+                    }></Route>
                 </Route>
                 <Route path="purchase/:purchaseId" element={
                     <RequireAuth>

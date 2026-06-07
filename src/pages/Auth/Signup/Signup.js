@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
@@ -30,6 +30,12 @@ const Signup = () => {
 
     const navigate = useNavigate();
 
+    useEffect(() => {
+        if (token) {
+            navigate('/dashboard');
+        }
+    }, [token, navigate]);
+
 
     let signInError;
 
@@ -50,9 +56,7 @@ const Signup = () => {
 
     }
 
-    if (token) {
-        navigate('/dashboard');
-    }
+
 
 
     return (

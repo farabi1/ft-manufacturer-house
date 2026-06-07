@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import Review from './Review';
+import API_BASE from '../../api';
 
 const Reviews = () => {
 
     const [reviews, setReviews] = useState([]);
     useEffect(() => {
-        fetch('https://immense-shore-60421.herokuapp.com/reviews')
+        fetch(`${API_BASE}/reviews`)
             .then(res => res.json())
             .then(data => setReviews(data));
     }, [])
@@ -15,7 +16,7 @@ const Reviews = () => {
             <div className="flex justify-center">
                 <div className='grid grid-cols-1 lg:grid-cols-3 my-12 gap-5'>
                     {
-                        reviews.map((review, index) => <Review key={index} review={review}></Review>)
+                        reviews.map((review, index) => <Review key={review._id || index} review={review}></Review>)
                     }
                 </div >
             </div>

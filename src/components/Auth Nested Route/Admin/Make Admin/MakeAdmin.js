@@ -2,12 +2,15 @@ import React from 'react';
 import { useQuery } from 'react-query';
 import Loading from '../../../Loading/Loading';
 import UserList from './UserList';
-
+import API_BASE from '../../../../api';
 
 const MakeAdmin = () => {
 
-
-    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('https://immense-shore-60421.herokuapp.com/users')
+    const { data: users, isLoading, refetch } = useQuery('users', () => fetch(`${API_BASE}/users`, {
+        headers: {
+            'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+        }
+    })
         .then(res => res.json()));
 
     if (isLoading) {

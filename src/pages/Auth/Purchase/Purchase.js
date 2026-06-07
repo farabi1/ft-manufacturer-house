@@ -3,8 +3,7 @@ import { useParams } from 'react-router-dom';
 import Footer from '../../../components/Footer/Footer';
 import Header from '../../../components/Header/Header';
 import PurchaseModal from './PurchaseModal';
-
-
+import API_BASE from '../../../api';
 
 const Purchase = () => {
     const [purchase, setPurchase] = useState(null);
@@ -14,7 +13,7 @@ const Purchase = () => {
     const [parts, setParts] = useState([]);
 
     useEffect(() => {
-        const url = `https://immense-shore-60421.herokuapp.com/purchase/${purchaseId}`;
+        const url = `${API_BASE}/purchase/${purchaseId}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setParts(data));
@@ -24,7 +23,7 @@ const Purchase = () => {
     return (
         <div>
             <Header></Header>
-            <div className="card w-96 bg-base-100 shadow-xl w-50 mx-auto">
+            <div className="card w-96 bg-base-100 shadow-xl mx-auto">
                 <figure><img src={parts.img} alt="Shoes" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">{parts.name}</h2>

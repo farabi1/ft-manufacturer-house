@@ -1,21 +1,22 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
+import API_BASE from '../../../../api';
 
 const AddProducts = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
-        console.log(data)
-        const url = `https://immense-shore-60421.herokuapp.com/purchase`;
+        const url = `${API_BASE}/purchase`;
         fetch(url, {
             method: 'POST',
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
             },
             body: JSON.stringify(data)
         })
             .then(res => res.json())
             .then(result => {
-                console.log(result);
+                // Handle success state/notification if needed
             })
     };
     return (

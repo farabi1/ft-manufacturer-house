@@ -1,24 +1,23 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
-
+import API_BASE from '../../../../api';
 
 const AddReviews = () => {
 
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
-        console.log(data)
-        const url = `https://immense-shore-60421.herokuapp.com/reviews`;
+        const url = `${API_BASE}/reviews`;
         fetch(url, {
             method: 'POST',
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
             },
             body: JSON.stringify(data)
         })
-
             .then(res => res.json())
             .then(result => {
-                console.log(result);
+                // Add any success state/notification if needed
             })
     };
 
