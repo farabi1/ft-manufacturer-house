@@ -37,6 +37,7 @@ Beyond academic courses, this project demonstrates practical web engineering ski
 ---
 
 ## 📁 Project Directory Structure
+
 ```text
 ft-manufacturer-house/
 ├── public/                 # Static assets (HTML template, favicon, manifest)
@@ -61,6 +62,41 @@ ft-manufacturer-house/
         ├── Dashboard/      # Interactive dashboard (displays links dynamically based on user role)
         ├── Portfolio/      # Professional developer developer portfolio page
         └── Not Found/      # Custom 404 page
+```
+
+### 📊 System Architecture & Data Flow
+
+```mermaid
+graph TD
+    User([User Browser]) <--> |HTTPS| FE[React Frontend<br/>Firebase Hosting]
+    FE <--> |Authentication| Auth[Firebase Auth]
+    FE <--> |REST API Requests + JWT| BE[Express Server<br/>Render.com]
+    BE <--> |Native Driver| DB[(MongoDB Atlas Database)]
+```
+
+### 🗺️ Frontend Navigation & Routing Structure
+
+```mermaid
+graph TD
+    App[App.js Router] --> Public[Public Routes]
+    App --> Protected[Protected Routes<br/>RequireAuth]
+    App --> Admin[Admin Routes<br/>RequireAdmin]
+
+    Public --> Home[Home Page]
+    Public --> Portfolio[My Portfolio]
+    Public --> Login[Login / Register]
+
+    Protected --> Checkout[Purchase Tool]
+    Protected --> Dashboard[User Dashboard]
+    Dashboard --> MyOrders[My Orders]
+    Dashboard --> AddReview[Add Review]
+    Dashboard --> Profile[My Profile]
+
+    Admin --> AdminDash[Admin Dashboard]
+    AdminDash --> ManageOrders[Manage All Orders]
+    AdminDash --> AddProduct[Add A Product]
+    AdminDash --> MakeAdmin[Make Admin]
+    AdminDash --> ManageProducts[Manage Products]
 ```
 
 ---
