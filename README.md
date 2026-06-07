@@ -20,7 +20,7 @@ Beyond academic courses, this project demonstrates practical web engineering ski
 * User Authentication & Authorization using JWT and Firebase Auth
 
 > [!NOTE]
-> My GitHub account is registered under the email address: **rashidfarabi@gmail.com** (Ref: Section 7 of academic proof).
+> My GitHub account is registered under the email address: **rashidfarabi@gmail.com**.
 > 
 > The web engineering skills acquired during my bachelor's studies are based on the curriculum at that time. The GitHub projects mentioned demonstrate that I have since expanded my knowledge to include modern technologies and current development standards.
 
